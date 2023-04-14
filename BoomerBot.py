@@ -3,8 +3,13 @@ import pydle
 
 
 class BoomerBot(pydle.Client):
+    def __init__(self, nickname, realname, listOfChannels):
+        pydle.Client.__init__(self, nickname, fallback_nicknames=[], username=None, realname=realname, eventloop=None)
+        self.listOfChannels = listOfChannels
+
     async def on_connect(self):
-        await self.join('#bottest')
+        for channel in self.listOfChannels:
+            self.join(channel)
 
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
