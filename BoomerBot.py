@@ -3,12 +3,12 @@ import pydle
 
 
 class BoomerBot(pydle.Client):
-    distroList = '''
+    distroList = '''\
     Ecco un elenco delle distribuzioni Linux che puoi scaricare:
     1. Arch Linux
     2. Fedora
     3. Rocky Linux
-    4. Ubuntu
+    4. Ubuntu\
     '''
 
     def __init__(self, nickname, realname, listOfChannels):
