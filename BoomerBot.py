@@ -17,7 +17,7 @@ class BoomerBot(pydle.Client):
 
     async def on_connect(self):
         for channel in self.listOfChannels:
-            self.join(channel)
+            await self.join(channel)
 
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
