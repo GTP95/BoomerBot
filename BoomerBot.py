@@ -1,5 +1,6 @@
 # Simple boomer bot.
 import pydle
+import threading
 
 
 class BoomerBot(pydle.Client):
@@ -120,11 +121,17 @@ iiiiiliiliiiiii~             "4lili
         for channel in self.listOfChannels:
             await self.join(channel)
 
+    async def ansa(self, target):
+        await self.message(target, "Ansa, che ansia!")
+
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
         if source != self.nickname:
             if "E' mezzanotte! Un nuovo giorno e' alle porte! Oggi e'" in message:
                 await self.message(target, "Buongiornissimo, caffè?")
+            elif "[Ansa Tecnologia]" in message:
+                timer=threading.Timer(30.0, self.ansa(target))
+                timer.start()
             elif message == "!list":
                 await self.message(target, self.distroList)
             elif message == "!1":
