@@ -37,17 +37,7 @@ class BoomerBot(pydle.Client):
 ⠀⢀⣾⣿⣿⠿⠟⠛⠋⠉⠉⠀⠀⠀⠀⠀⠀⠉⠉⠙⠛⠻⠿⣿⣿⣷⡀⠀
 ⣠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣄\
     '''
-    fedora = '''\
-       ,\'\'\'\'\'.
-       |   ,.  |
-       |  |  '_'
-  ,....|  |..
-.'  ,_;|   ..'
-|  |   |  |
-|  ',_,'  |
- '.     ,'
-   \'\'\'\'\'\
-'''
+
     ubuntu = '''\
 ⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠋⠉⠁⠀⠀⠀⠀⠈⠉⠙⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⣿⣿⣿⣿⣿
@@ -64,28 +54,6 @@ class BoomerBot(pydle.Client):
 ⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⠟⠀⠀⠀⢀⣼⣿⣿⣿
 ⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣄⣀⡀⠀⠀⠀⠀⢀⣀⣠⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿\
-'''
-
-    rocky = '''\
-         __wgliliiligw_,
-       _williiiiiiliilililw,
-     _%iiiiiilililiiiiiiiiiii_
-   .Qliiiililiiiiiiililililiilm.
-  _iiiiiliiiiiililiiiiiiiiiiliil,
- .lililiiilililiiiilililililiiiii,
-_liiiiiiliiiiiiiliiiiiF{iiiiiilili,
-jliililiiilililiiili@`  ~ililiiiiiL
-iiiliiiiliiiiiiili>`      ~liililii
-liliiiliiilililii`         -9liiiil
-iiiiiliiliiiiii~             "4lili
-4ililiiiiilil~|      -w,       )4lf
--liiiiililiF'       _liig,       )'
- )iiiliii@`       _QIililig,
-  )iiii>`       .Qliliiiililw
-   )<>~       .mliiiiiliiiiiil,
-            _gllilililiililii~
-           giliiiiiiiiiiiiT`
-          -^~$ililili@~~'\
 '''
 
     fedora_braille = '''\
@@ -139,10 +107,10 @@ iiiiiliiliiiiii~             "4lili
         # don't respond to our own messages, as this leads to a positive feedback loop
         if source != self.nickname:
             if "E' mezzanotte! Un nuovo giorno e' alle porte! Oggi e'" in message and source == "[KIRA]":
-                randomInt=random.randrange(3)
+                randomInt = random.randrange(3)
                 # Since I'm not on Python 3.10, I can't use match/case.
                 # Really, Python? Wait until 3.10 for a switch/case?
-                answers={
+                answers = {
                     0: "Buongiornissimo, caffè?",
                     1: "[KIRA], ma quanto sei boomer?",
                     2: "https://www.youtube.com/watch?v=-NuptTvNSJY"
