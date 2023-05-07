@@ -129,8 +129,8 @@ iiiiiliiliiiiii~             "4lili
         if source != self.nickname:
             if "E' mezzanotte! Un nuovo giorno e' alle porte! Oggi e'" in message:
                 await self.message(target, "Buongiornissimo, caffè?")
-            elif "[Ansa Tecnologia]" in message:
-                timer=threading.Timer(30.0, self.ansa(target))
+            elif "[Ansa Tecnologia]" in message and source == [KIRA]:
+                timer = threading.Timer(30.0, self.ansa(target))
                 timer.start()
             elif message == "!list":
                 await self.message(target, self.distroList)
@@ -143,3 +143,6 @@ iiiiiliiliiiiii~             "4lili
                 await self.message(target, self.rocky_braille)
             elif message == "!4":
                 await self.message(target, self.ubuntu)
+            elif message == "!help":
+                await self.message(target, "Ti posso aiutare per la modica cifra di 50€")
+
