@@ -1,6 +1,5 @@
 # Simple boomer bot.
 import random
-
 import pydle
 import threading
 
