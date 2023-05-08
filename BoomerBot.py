@@ -131,7 +131,7 @@ class BoomerBot(pydle.Client):
             elif message == "!4":
                 await self.message(target, self.ubuntu)
             elif message == "!help":
-                await self.message(target, "Ti posso aiutare per la modica cifra di 50€")
+                await self.message(target, "Ti posso aiutare per la modica cifra di 50€, pagamento anticipato")
             elif "boomer" in message.lower():
                 quoteIndex = random.randrange(self.numOfQuotes)
                 currentLine = 0
