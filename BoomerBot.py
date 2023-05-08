@@ -117,6 +117,8 @@ class BoomerBot(pydle.Client):
                 }
                 await self.message(target, answers[randomInt])
             elif "[Ansa Tecnologia]" in message and source == "[KIRA]":
+                print("Get the following message form [KIRA]: "+message)
+                print("Going to answer in 30 seconds")
                 timer = threading.Timer(30.0, self.ansa, target)
                 timer.start()
             elif message == "!list":
