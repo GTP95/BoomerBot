@@ -1,5 +1,7 @@
 # Simple boomer bot.
 import random
+import time
+
 import pydle
 import threading
 
@@ -95,13 +97,18 @@ class BoomerBot(pydle.Client):
         pydle.Client.__init__(self, nickname, fallback_nicknames=[], username=None, realname=realname, eventloop=None)
         self.listOfChannels = listOfChannels
         self.numOfQuotes = count_quotes("quotes.txt")
+        self.waiting = False
 
     async def on_connect(self):
         for channel in self.listOfChannels:
             await self.join(channel)
 
     async def ansa(self, target):
-        await self.message(target, "Ansa, che ansia!")
+        if not self.waiting:
+            self.waiting=True
+            time.sleep(30.0)
+            await self.message(target, "Ansa, che ansia!")
+            self.waiting=False
 
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
@@ -117,10 +124,7 @@ class BoomerBot(pydle.Client):
                 }
                 await self.message(target, answers[randomInt])
             elif "[Ansa Tecnologia]" in message and source == "[KIRA]":
-                print("Get the following message form [KIRA]: "+message)
-                print("Going to answer in 30 seconds")
-                timer = threading.Timer(30.0, self.ansa, target)
-                timer.start()
+                await self.ansa(target)
             elif message == "!list":
                 await self.message(target, self.distroList)
             elif message == "!1":
