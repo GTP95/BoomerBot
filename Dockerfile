@@ -1,9 +1,9 @@
 FROM python:3.9
-COPY * /root/bot/
-RUN pip install -r /root/bot/requirements.txt
-RUN chmod +x /root/bot/main.py
-RUN ln -s /root/bot/main.py /usr/local/sbin/boomerbot
 RUN groupadd -r user && useradd -r -g user user
+COPY * /home/user
+RUN pip install -r /home/user/requirements.txt
+RUN chmod +x /home/user/main.py
+RUN ln -s /home/user/main.py /usr/local/sbin/boomerbot
 USER user
-WORKDIR /root/bot
+WORKDIR /home/user
 CMD python /root/bot/main.py \#bottest
