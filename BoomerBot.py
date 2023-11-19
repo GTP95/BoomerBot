@@ -114,13 +114,14 @@ class BoomerBot(pydle.Client):
         # don't respond to our own messages, as this leads to a positive feedback loop
         if source != self.nickname:
             if "E' mezzanotte! Un nuovo giorno e' alle porte! Oggi e'" in message and source == "[KIRA]":
-                randomInt = random.randrange(3)
+                randomInt = random.randrange(4)
                 # Since I'm not on Python 3.10, I can't use match/case.
                 # Really, Python? Wait until 3.10 for a switch/case?
                 answers = {
                     0: "Buongiornissimo, caffè?",
                     1: "[KIRA], ma quanto sei boomer?",
-                    2: "https://www.youtube.com/watch?v=-NuptTvNSJY"
+                    2: "https://www.youtube.com/watch?v=-NuptTvNSJY",
+                    3: "https://www.youtube.com/watch?v=qR6dzwQahOM"
                 }
                 await self.message(target, answers[randomInt])
             elif "[Ansa Tecnologia]" in message and source == "GTP":
