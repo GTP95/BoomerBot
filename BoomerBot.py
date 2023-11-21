@@ -93,11 +93,31 @@ class BoomerBot(pydle.Client):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\
 '''
 
+    l='''\
+ ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣠⣤⣤⣤⣀⣀⣀⣀⣠⠄⢀⣀⣤⠤⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣴⡿⠿⣿⣿⣿⣿⠿⣿⡟⠁⣴⣿⡟⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠐⠃⠄⠄⠄⠄⠄⢀⣾⡟⠄⢰⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣾⣿⡇⠄⢸⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸⣿⣿⡇⠄⢸⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⣀⣸⣿⣿⣧⠄⢸⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠚⠛⠻⣿⣿⣿⣿⠄⢸⣿⣿⡇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⣿⣿⡿⠄⢸⣿⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠛⢿⣿⣿⡇⠄⣼⣿⠏⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⣿⡿⠄⣰⡿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢰⡿⣡⣾⣫⣤⣶⣶⣶⣶⣦⣄⡀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣰⣿⣿⣿⡿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣶⠞⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠴⠞⠋⠉⠄⠄⠄⠄⠄⠄⠄⠉⠙⠿⣿⠟⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
+'''
+
     def __init__(self, nickname, realname, listOfChannels):
         pydle.Client.__init__(self, nickname, fallback_nicknames=[], username=None, realname=realname, eventloop=None)
         self.listOfChannels = listOfChannels
         self.numOfQuotes = count_quotes("quotes.txt")
         self.lastAnsaCall=0
+        self.nickname=nickname
 
     async def on_connect(self):
         for channel in self.listOfChannels:
@@ -125,7 +145,7 @@ class BoomerBot(pydle.Client):
                     4: "https://www.youtube.com/watch?v=ZXmEgIERQBo"
                 }
                 await self.message(target, answers[randomInt])
-            elif "[Ansa Tecnologia]" in message and source == "GTP":
+            elif "[Ansa Tecnologia]" in message:
                 await self.ansa(target)
             elif message == "!list":
                 await self.message(target, self.distroList)
@@ -140,7 +160,9 @@ class BoomerBot(pydle.Client):
                 await self.message(target, self.ubuntu)
             elif message == "!help":
                 await self.message(target, "Ti posso aiutare per la modica cifra di 50€, pagamento anticipato")
-            elif "boomer" in message.lower():
+            elif self.nickname.lower() in message.lower() and "chi" and "sei" in message.lower():
+                await self.message(target, self.l)
+            elif self.nickname.lower() in message.lower():
                 quoteIndex = random.randrange(self.numOfQuotes)
                 currentLine = 0
                 file = open("quotes.txt", "r")
