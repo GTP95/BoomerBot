@@ -1,6 +1,6 @@
 # BoomerBot
 An IRC bot to make fun of a certain other IRC bot. Based on [pydle](https://github.com/shizmob/pydle), so requires Python 3.6 through 3.9.  
-Usage: `python main.py nick realname list_of_space_separated_channels`  
+Usage: `python main.py <nick> <realname> <list_of_space_separated_channels>`  
 Note: automatically connects to the Azzurra network, there's no option to specify a server other than editing the code yet.
 
 ## Run locally
