@@ -3,7 +3,6 @@ import random
 import time
 
 import pydle
-import threading
 
 
 def count_quotes(filepath):
