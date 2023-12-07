@@ -119,6 +119,7 @@ class BoomerBot(pydle.Client):
         self.nickname=nickname
 
     async def on_connect(self):
+        await super().on_connect()
         for channel in self.listOfChannels:
             await self.join(channel)
 

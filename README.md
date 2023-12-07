@@ -10,4 +10,4 @@ Then run it with `python main.py <nick> <realname> <list_of_space_separated_chan
 ## Docker
 To run it inside a docker container, first build the image with `docker build -t boomerbot .`  
 Then run it with `docker run -d --restart unless-stopped boomerbot boomerbot <nick> <realname> <list_of_space_separated_channels>`
-If you're using Bash, remember to escape the `#` in the channel list with `\#` or put the whole list in quotes.
+If you're using Bash, remember to escape the `#` in the channel list with `\#`.
