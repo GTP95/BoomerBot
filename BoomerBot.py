@@ -92,7 +92,7 @@ class BoomerBot(pydle.Client):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\
 '''
 
-    l='''\
+    l = '''\
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣠⣤⣤⣤⣀⣀⣀⣀⣠⠄⢀⣀⣤⠤⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣴⡿⠿⣿⣿⣿⣿⠿⣿⡟⠁⣴⣿⡟⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
@@ -111,24 +111,28 @@ class BoomerBot(pydle.Client):
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
 '''
 
-    def __init__(self, nickname, realname, listOfChannels):
+    def __init__(self, nickname, realname, listOfChannels, password):
         pydle.Client.__init__(self, nickname, fallback_nicknames=[], username=None, realname=realname, eventloop=None)
         self.listOfChannels = listOfChannels
         self.numOfQuotes = count_quotes("quotes.txt")
-        self.lastAnsaCall=0
-        self.nickname=nickname
+        self.lastAnsaCall = 0
+        self.nickname = nickname
+        self.password = password
 
     async def on_connect(self):
         await super().on_connect()
+        if self.password is not None:
+            print("Identifying to NickServ")
+            await self.message("NickServ", "identify " + self.password)
+            print("Joining channels")
         for channel in self.listOfChannels:
             await self.join(channel)
 
     async def ansa(self, target):
-        now=int(time.time())
-        if now-self.lastAnsaCall>=30:
+        now = int(time.time())
+        if now - self.lastAnsaCall >= 30:
             await self.message(target, "Ansa, che ansia!")
-            self.lastAnsaCall=now
-
+            self.lastAnsaCall = now
 
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
