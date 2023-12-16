@@ -1,5 +1,5 @@
 # BoomerBot
-An IRC bot to make fun of a certain other IRC bot. Based on [pydle](https://github.com/shizmob/pydle), so requires Python 3.6 through 3.9.  
+An IRC bot to make fun of a certain other IRC bot and of people using the `!list` command. Based on [pydle](https://github.com/shizmob/pydle), so requires Python 3.6 through 3.9.  
 Supports NickServ authentication, no SASL yet as it isn't supported by the Azzurra IRC network.
 Usage: `python main.py [-h] [-s SERVER] [-p PASSWORD] nickname realname listOfChannels [listOfChannels ...]`  
 ```
