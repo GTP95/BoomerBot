@@ -19,9 +19,10 @@ Defaults to connecting to `raccooncity.azzurra.org` without NickServ authenticat
 
 ## Run locally
 To run it locally, first install the dependencies with `pip install -r requirements.txt`  
-Then run it with `python main.py <nick> <realname> <list_of_space_separated_channels>`
+Then run it with `python main.py [-h] [-s SERVER] [-p PASSWORD] nickname realname listOfChannels [listOfChannels ...]`  
+If you're using Bash, remember to escape the occurrences of `#` in the channel list with `\#`.
 
 ## Docker
 To run it inside a docker container, first build the image with `docker build -t boomerbot .`  
-Then run it with `docker run -d --restart unless-stopped boomerbot boomerbot <nick> <realname> <list_of_space_separated_channels>`
-If you're using Bash, remember to escape the `#` in the channel list with `\#`.
+Then run it with `docker run -d --restart unless-stopped boomerbot boomerbot [-s SERVER] [-p PASSWORD] nickname realname listOfChannels [listOfChannels ...]`
+If you're using Bash, remember to escape the occurrences of `#` in the channel list with `\#`.
