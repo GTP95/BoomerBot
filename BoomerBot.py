@@ -122,9 +122,7 @@ class BoomerBot(pydle.Client):
     async def on_connect(self):
         await super().on_connect()
         if self.password is not None:
-            print("Identifying to NickServ")
             await self.message("NickServ", "identify " + self.password)
-            print("Joining channels")
         for channel in self.listOfChannels:
             await self.join(channel)
 
