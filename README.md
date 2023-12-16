@@ -6,7 +6,7 @@ Usage: `python main.py [-h] [-s SERVER] [-p PASSWORD] nickname realname listOfCh
 positional arguments:
   nickname              nickname to use
   realname              realname to use
-  listOfChannels        list of channels to join
+  listOfChannels        space-separated list of channels to join
 
 optional arguments:
   -h, --help            show help message and exit
