@@ -1,8 +1,8 @@
 #!/usr/local/bin/python
 
-import sys
-from BoomerBot import BoomerBot
 import argparse
+
+from BoomerBot import BoomerBot
 
 if __name__ == '__main__':
     #parse command line arguments
