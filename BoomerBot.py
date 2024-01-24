@@ -1,7 +1,6 @@
 # Simple boomer bot.
 import random
 import time
-
 import pydle
 
 
