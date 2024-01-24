@@ -25,4 +25,4 @@ If you're using Bash, remember to escape the occurrences of `#` in the channel l
 ## Docker
 To run it inside a docker container, first build the image with `docker build -t boomerbot .`  
 Then run it with `docker run -d --restart unless-stopped boomerbot boomerbot [-s SERVER] [-p PASSWORD] nickname realname listOfChannels [listOfChannels ...]`
-If you're using Bash, remember to escape the occurrences of `#` in the channel list with `\#`.
+Remember to escape the occurrences of `#` in the channel list with `\#`.
