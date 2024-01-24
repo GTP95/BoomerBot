@@ -7,4 +7,4 @@ RUN ln -s /home/user/main.py /usr/local/sbin/boomerbot
 RUN chmod +x /usr/local/sbin/boomerbot
 USER user
 WORKDIR /home/user
-CMD boomerbot Bomber bot \#bottest
+CMD boomerbot [L] bot \#bottest -p 7536987
