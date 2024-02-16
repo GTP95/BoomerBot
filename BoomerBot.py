@@ -110,30 +110,37 @@ class BoomerBot(pydle.Client):
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
 '''
 
-    def __init__(self, nickname, realname, listOfChannels, password):
+    def __init__(self, nickname, realname, listOfChannels, password=""):
         pydle.Client.__init__(self, nickname, fallback_nicknames=[], username=None, realname=realname, eventloop=None)
-        self.listOfChannels = listOfChannels
-        self.numOfQuotes = count_quotes("quotes.txt")
-        self.lastAnsaCall = 0
-        self.nickname = nickname
-        self.password = password
+        self.__listOfChannels = listOfChannels
+        self.__numOfQuotes = count_quotes("quotes.txt")
+        self.__lastAnsaCall = 0
+        self.__nickname = nickname
+        self.__password = password
+        print("init done")
 
     async def on_connect(self):
-        await super().on_connect()
-        if self.password is not None:
-            await self.message("NickServ", "identify " + self.password)
-        for channel in self.listOfChannels:
+        print("on_connect")
+        await pydle.Client.on_connect(self)
+        print(self.__password)
+        if self.__password:
+            print("Attempting NickServ authentication")
+            await self.message("NickServ", "identify " + self.__password)
+        else:
+            print("No password specified, skipping authentication")
+        for channel in self.__listOfChannels:
+            print("Joining channels")
             await self.join(channel)
 
     async def ansa(self, target):
         now = int(time.time())
-        if now - self.lastAnsaCall >= 30:
+        if now - self.__lastAnsaCall >= 30:
             await self.message(target, "Ansa, che ansia!")
-            self.lastAnsaCall = now
+            self.__lastAnsaCall = now
 
     async def on_message(self, target, source, message):
         # don't respond to our own messages, as this leads to a positive feedback loop
-        if source != self.nickname:
+        if source != self.__nickname:
 
             if "E' mezzanotte! Un nuovo giorno e' alle porte! Oggi e'" in message and source == "[KIRA]":
                 randomInt = random.randrange(5)
@@ -170,11 +177,11 @@ class BoomerBot(pydle.Client):
             elif message == "!help" or message == "!aiuto":
                 await self.message(target, "Ti posso aiutare per la modica cifra di 50€, pagamento anticipato")
 
-            elif self.nickname.lower() in message.lower() and "chi" and "sei" in message.lower():   #Already double-checked this, it works without parentheses
+            elif self.__nickname.lower() in message.lower() and "chi" and "sei" in message.lower():   #Already double-checked this, it works without parentheses
                 await self.message(target, self.l)
 
-            elif self.nickname.lower() in message.lower():
-                quoteIndex = random.randrange(self.numOfQuotes)
+            elif self.__nickname.lower() in message.lower():
+                quoteIndex = random.randrange(self.__numOfQuotes)
                 currentLine = 0
                 file = open("quotes.txt", "r")
                 for line in file:

@@ -13,6 +13,5 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--server', type=str, default='raccooncity.azzurra.org', help='server to connect to')
     parser.add_argument('-p', '--password', type=str, default=None, help='password to use for NickServ authentication')
     args = parser.parse_args()
-
-    client = BoomerBot(args.nickname, realname=args.realname, listOfChannels=args.listOfChannels, password=args.password)
+    client = BoomerBot(nickname=args.nickname, realname=args.realname, listOfChannels=args.listOfChannels, password=args.password)
     client.run(args.server, tls=True, tls_verify=False)
