@@ -117,12 +117,9 @@ class BoomerBot(pydle.Client):
         self.__lastAnsaCall = 0
         self.__nickname = nickname
         self.__password = password
-        print("init done")
 
     async def on_connect(self):
-        print("on_connect")
         await pydle.Client.on_connect(self)
-        print(self.__password)
         if self.__password:
             print("Attempting NickServ authentication")
             await self.message("NickServ", "identify " + self.__password)
