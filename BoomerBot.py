@@ -155,7 +155,7 @@ class BoomerBot(pydle.Client):
             elif "[Ansa Tecnologia]" in message:
                 await self.ansa(target)
 
-            elif message == "!list" or message == "!lista":
+            elif message == "!list" or message == "! list" or message == "!lista" or message == "! lista":
                 await self.message(target, self.distroList)
 
             elif message == "!1":
