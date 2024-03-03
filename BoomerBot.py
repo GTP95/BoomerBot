@@ -155,7 +155,7 @@ class BoomerBot(pydle.Client):
             elif "[Ansa Tecnologia]" in message:
                 await self.ansa(target)
 
-            elif message == "!list" or message == "! list" or message == "!lista" or message == "! lista":
+            elif message.lower() == "!list" or message.lower() == "! list" or message.lower() == "!lista" or message.lower() == "! lista":
                 await self.message(target, self.distroList)
 
             elif message == "!1":
@@ -171,7 +171,7 @@ class BoomerBot(pydle.Client):
             elif message == "!4":
                 await self.message(target, self.ubuntu)
 
-            elif message == "!help" or message == "!aiuto":
+            elif message.lower() == "!help" or message.lower() == "!aiuto":
                 await self.message(target, "Ti posso aiutare per la modica cifra di 50€, pagamento anticipato")
 
             elif self.__nickname.lower() in message.lower() and "chi" and "sei" in message.lower():   #Already double-checked this, it works without parentheses
